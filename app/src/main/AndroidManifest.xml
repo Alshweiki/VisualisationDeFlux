@@ -38,15 +38,18 @@
         </activity>
         <activity
             android:name=".Main6Activity"
-            android:label="@string/title_activity_main6" >
+            android:label="@string/title_activity_main6"
+            >
         </activity>
         <activity
             android:name=".Main7Activity"
-            android:label="@string/title_activity_main7" >
+            android:label="@string/title_activity_main7"
+            android:parentActivityName=".Main6Activity">
         </activity>
         <activity
             android:name=".Main8Activity"
-            android:label="@string/title_activity_main8" >
+            android:label="@string/title_activity_main8"
+            android:parentActivityName=".Main7Activity">
         </activity>
     </application>
 
