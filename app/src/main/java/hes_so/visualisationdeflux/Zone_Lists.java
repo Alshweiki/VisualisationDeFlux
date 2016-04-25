@@ -94,8 +94,8 @@ public class Zone_Lists extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                // Intent intent = new Intent(MainActivity.this, Main3Activity.class);
-                //startActivity(intent);
+                 Intent intent = new Intent(getContext(), Main9Activity.class);
+                startActivity(intent);
             }
         });
 
