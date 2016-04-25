@@ -2,8 +2,13 @@ package hes_so.visualisationdeflux;
 
 //import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +25,7 @@ public class Zone_Lists extends Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
 
     private int mPage;
+
 
     public static Zone_Lists newInstance(int page) {
         Bundle args = new Bundle();
@@ -49,7 +55,7 @@ public class Zone_Lists extends Fragment {
         Zone_Dynamiqeu_List.addAll(Arrays.asList(zone_Dynamique));
 
         // Create ArrayAdapter using the planet list.
-        ArrayAdapter listAdapter = new ArrayAdapter<String>(view.getContext(), R.layout.zone_messages, Zone_Dynamiqeu_List);
+        ArrayAdapter listAdapter = new ArrayAdapter<String>(view.getContext(), R.layout.zone_list, Zone_Dynamiqeu_List);
         listAdapter.add("Coop");
         listAdapter.add("Coop");
         listAdapter.add("Coop");listAdapter.add("Coop");
@@ -66,8 +72,8 @@ public class Zone_Lists extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-               // Intent intent = new Intent(MainActivity.this, Main3Activity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(getContext(), Main9Activity.class);
+                startActivity(intent);
             }
         });
 
@@ -97,6 +103,8 @@ public class Zone_Lists extends Fragment {
 
         return view;
     }
+
+
 }
 
 

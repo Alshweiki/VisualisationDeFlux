@@ -14,6 +14,8 @@ import android.view.View;
 
 public class Main6Activity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +24,7 @@ public class Main6Activity extends AppCompatActivity {
 
         // Get the ViewPager and set it's PagerAdapter so that it can display items
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
+        viewPager.setAdapter(new Zone_Administration_Tab(getSupportFragmentManager(),
                 Main6Activity.this));
 
         // Give the TabLayout the ViewPager
@@ -42,6 +44,8 @@ public class Main6Activity extends AppCompatActivity {
         });
 
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

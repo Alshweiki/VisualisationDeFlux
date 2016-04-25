@@ -12,6 +12,7 @@
     <string name="title_activity_main6">Zone Administrative</string>
     <string name="title_activity_main7">1/2 Decrire la Zone</string>
     <string name="title_activity_main8">2/2 Decrire la Zone</string>
+    <string name="title_activity_main9">Zone Détails</string>
 
 
 
@@ -29,6 +30,7 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 
 </resources>
