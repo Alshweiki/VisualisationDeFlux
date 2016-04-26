@@ -36,13 +36,13 @@ public class Zone_details_Tab extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if(position == 0)
-            return Zone_Flow.newInstance(position + 1);
+            return zone_flow.newInstance(position + 1);
         else
         if(position ==1)
             return Zone_Messages.newInstance(position + 1);
 
 
-        return Zone_Flow.newInstance(position + 1);
+        return zone_flow.newInstance(position + 1);
     }
 
     @Override

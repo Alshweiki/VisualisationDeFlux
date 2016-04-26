@@ -8,15 +8,15 @@ import android.widget.TextView;
 
 
 // In this case, the fragment displays simple text based on the page
-public class Zone_Flow extends android.support.v4.app.Fragment {
+public class zone_flow extends android.support.v4.app.Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
 
     private int mPage1;
 
-    public static Zone_Flow newInstance(int page) {
+    public static zone_flow newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
-        Zone_Flow fragment = new Zone_Flow();
+        zone_flow fragment = new zone_flow();
         fragment.setArguments(args);
         return fragment;
     }

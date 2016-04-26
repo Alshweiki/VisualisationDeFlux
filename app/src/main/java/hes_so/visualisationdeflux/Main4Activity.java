@@ -1,10 +1,12 @@
 package hes_so.visualisationdeflux;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class Main4Activity extends AppCompatActivity {
 
@@ -12,6 +14,17 @@ public class Main4Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Click action
+                //Intent intent = new Intent(Main4Activity.this, Main4Activity.class);
+               // startActivity(intent);
+            }
+        });
     }
 
     @Override
