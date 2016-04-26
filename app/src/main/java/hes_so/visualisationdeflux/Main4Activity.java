@@ -15,11 +15,13 @@ public class Main4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
 
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                
                 // Click action
                 //Intent intent = new Intent(Main4Activity.this, Main4Activity.class);
                // startActivity(intent);
