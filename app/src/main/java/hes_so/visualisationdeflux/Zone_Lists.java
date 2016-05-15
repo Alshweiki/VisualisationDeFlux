@@ -2,20 +2,14 @@ package hes_so.visualisationdeflux;
 
 //import android.app.Fragment;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -72,7 +66,7 @@ public class Zone_Lists extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                Intent intent = new Intent(getContext(), Main9Activity.class);
+                Intent intent = new Intent(getContext(), Flow_details.class);
                 startActivity(intent);
             }
         });
@@ -94,7 +88,7 @@ public class Zone_Lists extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                 Intent intent = new Intent(getContext(), Main9Activity.class);
+                 Intent intent = new Intent(getContext(), Flow_details.class);
                 startActivity(intent);
             }
         });

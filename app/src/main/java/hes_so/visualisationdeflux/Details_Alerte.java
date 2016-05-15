@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Main3Activity extends AppCompatActivity {
+public class Details_Alerte extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.activity_details_alerte);
     }
 
     @Override
@@ -41,12 +41,12 @@ public class Main3Activity extends AppCompatActivity {
      * Launching new activity
      * */
     private void logIn() {
-        Intent i = new Intent(Main3Activity.this, Main5Activity.class);
+        Intent i = new Intent(Details_Alerte.this, LogIn.class);
         startActivity(i);
     }
 
     private void setting(){
-        Intent i = new Intent(Main3Activity.this, Main0Activity.class);
+        Intent i = new Intent(Details_Alerte.this, Info.class);
         startActivity(i);
     }
 }

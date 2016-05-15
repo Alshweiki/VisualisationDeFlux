@@ -8,12 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class Main7Activity extends AppCompatActivity {
+public class Add_Zone_Description extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main7);
+        setContentView(R.layout.activity_add_zone_description);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -22,7 +22,7 @@ public class Main7Activity extends AppCompatActivity {
 
                 // Click action
                 if(true) {
-                    Intent intent = new Intent(Main7Activity.this, Main8Activity.class);
+                    Intent intent = new Intent(Add_Zone_Description.this, Add_Zone_Map.class);
                     startActivity(intent);
                 }
             }
@@ -52,7 +52,7 @@ public class Main7Activity extends AppCompatActivity {
      * Launching new activity
      * */
     private void logout() {
-        Intent i = new Intent(Main7Activity.this, MainActivity.class);
+        Intent i = new Intent(Add_Zone_Description.this, Accueil.class);
         startActivity(i);
     }
 }

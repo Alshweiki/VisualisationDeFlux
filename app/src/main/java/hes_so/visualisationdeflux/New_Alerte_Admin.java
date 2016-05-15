@@ -8,23 +8,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class Main4Activity extends AppCompatActivity {
+public class New_Alerte_Admin extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
-
+        setContentView(R.layout.activity_new_alerte_admin);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                
                 // Click action
-                //Intent intent = new Intent(Main4Activity.this, Main4Activity.class);
-               // startActivity(intent);
+               // Intent intent = new Intent(New_Alerte_Admin.this, Add_Zone_Description.class);
+                //startActivity(intent);
             }
         });
     }
@@ -32,7 +30,7 @@ public class Main4Activity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main4, menu);
+        getMenuInflater().inflate(R.menu.menu_main10, menu);
         return true;
     }
 
@@ -40,28 +38,20 @@ public class Main4Activity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Take appropriate action for each action item click
         switch (item.getItemId()) {
-            case R.id.action_login:
-                logIn();
+            case R.id.action_logOut:
+                logout();
                 return true;
-            case R.id.action_settings:
-                setting();
-                return true;
+
 
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
     /**
      * Launching new activity
      * */
-    private void logIn() {
-        Intent i = new Intent(Main4Activity.this, Main5Activity.class);
-        startActivity(i);
-    }
-
-    private void setting(){
-        Intent i = new Intent(Main4Activity.this, Main0Activity.class);
+    private void logout() {
+        Intent i = new Intent(New_Alerte_Admin.this, Accueil.class);
         startActivity(i);
     }
 }

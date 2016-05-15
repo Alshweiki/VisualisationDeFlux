@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".Accueil"
             android:label="@string/title_activity_main1" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,53 +17,53 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Main3Activity"
+            android:name=".Details_Alerte"
             android:label="@string/title_activity_main3"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".Accueil" >
         </activity>
         <activity
-            android:name=".Main4Activity"
+            android:name=".Nouveau_message"
             android:label="@string/title_activity_main4"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".Accueil" >
         </activity>
         <activity
-            android:name=".Main5Activity"
+            android:name=".LogIn"
             android:label="@string/title_activity_main5"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".Accueil" >
         </activity>
         <activity
-            android:name=".Main0Activity"
+            android:name=".Info"
             android:label="@string/title_activity_main0"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".Accueil" >
         </activity>
         <activity
-            android:name=".Main6Activity"
+            android:name=".Admin_Map"
             android:label="@string/title_activity_main6" >
         </activity>
         <activity
-            android:name=".Main7Activity"
+            android:name=".Add_Zone_Description"
             android:label="@string/title_activity_main7"
-            android:parentActivityName=".Main6Activity" >
+            android:parentActivityName=".Admin_Map" >
         </activity>
         <activity
-            android:name=".Main8Activity"
+            android:name=".Add_Zone_Map"
             android:label="@string/title_activity_main8"
-            android:parentActivityName=".Main7Activity" >
+            android:parentActivityName=".Add_Zone_Description" >
         </activity>
         <activity
-            android:name=".Main9Activity"
+            android:name=".Flow_details"
             android:label="@string/title_activity_main9"
-            android:parentActivityName=".Main6Activity" >
+            android:parentActivityName=".Admin_Map" >
         </activity>
         <activity
-            android:name=".Main10Activity"
+            android:name=".New_Alerte_Admin"
             android:label="@string/title_activity_main10"
-            android:parentActivityName=".Main9Activity">
+            android:parentActivityName=".Flow_details">
         </activity>
         <activity
-            android:name=".Main11Activity"
+            android:name=".Push_alerte"
             android:label="@string/title_activity_main11"
-            android:parentActivityName=".Main9Activity">
+            android:parentActivityName=".Flow_details">
         </activity>
     </application>
 

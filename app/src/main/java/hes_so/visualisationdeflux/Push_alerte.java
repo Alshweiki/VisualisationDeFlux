@@ -8,13 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class Main8Activity extends AppCompatActivity {
+public class Push_alerte extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main8);
-
+        setContentView(R.layout.activity_push_alerte);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -22,10 +21,8 @@ public class Main8Activity extends AppCompatActivity {
             public void onClick(View view) {
 
                 // Click action
-                if(true) {
-                    Intent intent = new Intent(Main8Activity.this, Main6Activity.class);
-                    startActivity(intent);
-                }
+               // Intent intent = new Intent(Admin_Map.this, Add_Zone_Description.class);
+               // startActivity(intent);
             }
         });
     }
@@ -33,7 +30,7 @@ public class Main8Activity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main8, menu);
+        getMenuInflater().inflate(R.menu.menu_main11, menu);
         return true;
     }
 
@@ -54,7 +51,7 @@ public class Main8Activity extends AppCompatActivity {
      * Launching new activity
      * */
     private void logout() {
-        Intent i = new Intent(Main8Activity.this, MainActivity.class);
+        Intent i = new Intent(Push_alerte.this, Accueil.class);
         startActivity(i);
     }
 }

@@ -1,10 +1,7 @@
 package hes_so.visualisationdeflux;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,7 +69,7 @@ public class Zone_Messages extends android.support.v4.app.Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                Intent intent = new Intent(getContext(), Main10Activity.class);
+                Intent intent = new Intent(getContext(), New_Alerte_Admin.class);
                 startActivity(intent);
             }
         });
@@ -83,7 +80,7 @@ public class Zone_Messages extends android.support.v4.app.Fragment {
             public void onClick(View view) {
 
                 // Click action
-                Intent intent = new Intent(getContext(), Main11Activity.class);
+                Intent intent = new Intent(getContext(), Push_alerte.class);
                 startActivity(intent);
             }
         });
