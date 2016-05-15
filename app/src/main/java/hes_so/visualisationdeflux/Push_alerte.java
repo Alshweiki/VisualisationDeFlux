@@ -51,7 +51,7 @@ public class Push_alerte extends AppCompatActivity {
      * Launching new activity
      * */
     private void logout() {
-        Intent i = new Intent(Push_alerte.this, Accueil.class);
+        Intent i = new Intent(Push_alerte.this, Accuiel.class);
         startActivity(i);
     }
 }

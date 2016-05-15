@@ -52,7 +52,7 @@ public class Add_Zone_Description extends AppCompatActivity {
      * Launching new activity
      * */
     private void logout() {
-        Intent i = new Intent(Add_Zone_Description.this, Accueil.class);
+        Intent i = new Intent(Add_Zone_Description.this, Accuiel.class);
         startActivity(i);
     }
 }

@@ -54,7 +54,7 @@ public class Add_Zone_Map extends AppCompatActivity {
      * Launching new activity
      * */
     private void logout() {
-        Intent i = new Intent(Add_Zone_Map.this, Accueil.class);
+        Intent i = new Intent(Add_Zone_Map.this, Accuiel.class);
         startActivity(i);
     }
 }

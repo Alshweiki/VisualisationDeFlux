@@ -71,7 +71,7 @@ public class Admin_Map extends AppCompatActivity {
      * Launching new activity
      * */
     private void logout() {
-        Intent i = new Intent(Admin_Map.this, Accueil.class);
+        Intent i = new Intent(Admin_Map.this, Accuiel.class);
         startActivity(i);
     }
 

@@ -51,7 +51,7 @@ public class New_Alerte_Admin extends AppCompatActivity {
      * Launching new activity
      * */
     private void logout() {
-        Intent i = new Intent(New_Alerte_Admin.this, Accueil.class);
+        Intent i = new Intent(New_Alerte_Admin.this, Accuiel.class);
         startActivity(i);
     }
 }

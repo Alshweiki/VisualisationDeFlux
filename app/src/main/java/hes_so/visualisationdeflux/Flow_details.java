@@ -50,7 +50,7 @@ public class Flow_details extends AppCompatActivity {
      * Launching new activity
      * */
     private void logout() {
-        Intent i = new Intent(Flow_details.this, Accueil.class);
+        Intent i = new Intent(Flow_details.this, Accuiel.class);
         startActivity(i);
     }
 }
