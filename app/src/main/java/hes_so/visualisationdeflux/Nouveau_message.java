@@ -13,7 +13,7 @@ public class Nouveau_message extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nouveau_message);
+        setContentView(R.layout.activity_nouveau_messag);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
