@@ -25,4 +25,5 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile files('libs/GraphView-4.0.1.jar')
     compile files('/Users/Ali/Google Drive/MacBook Air/Andoird SDK Projet/VisualisationDeFlux2/libs/GraphView-4.0.1.jar')
+    compile files('/Users/Ali/Google Drive/MacBook Air/Andoird SDK Projet/VisualisationDeFlux2/libs/mpandroidchartlibrary-2-2-4.jar')
 }
