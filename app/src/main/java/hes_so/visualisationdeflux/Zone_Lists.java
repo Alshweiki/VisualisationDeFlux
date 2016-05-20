@@ -67,6 +67,7 @@ public class Zone_Lists extends Fragment {
                                     int position, long id) {
 
                 Intent intent = new Intent(getContext(), Flow_details.class);
+                intent.putExtra("TypeOfZone","dynamique");
                 startActivity(intent);
             }
         });
@@ -89,6 +90,7 @@ public class Zone_Lists extends Fragment {
                                     int position, long id) {
 
                  Intent intent = new Intent(getContext(), Flow_details.class);
+                intent.putExtra("TypeOfZone","statique");
                 startActivity(intent);
             }
         });

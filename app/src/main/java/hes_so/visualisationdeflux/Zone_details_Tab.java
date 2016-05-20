@@ -5,21 +5,16 @@ package hes_so.visualisationdeflux;
  */
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
 
 /**
  * Created by Ali on 25.04.16.
  */
 public class Zone_details_Tab extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 2;
-    private String tabTitles[] = new String[] { "Flux", "Messages" };
+    final int PAGE_COUNT = 3;
+    private String tabTitles[] = new String[] { "Flux", "Messages", "Statistiques" };
     private Context context;
 
 
@@ -40,6 +35,10 @@ public class Zone_details_Tab extends FragmentPagerAdapter {
         else
         if(position ==1)
             return Zone_Messages.newInstance(position + 1);
+        else
+        if(position == 2)
+            return Zone_Visualisation_Statique.newInstance(position + 1);
+
 
 
         return zone_flow.newInstance(position + 1);
