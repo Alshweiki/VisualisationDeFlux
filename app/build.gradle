@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "hes_so.visualisationdeflux"
-        minSdkVersion 14
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -26,4 +26,6 @@ dependencies {
     compile files('libs/GraphView-4.0.1.jar')
     compile files('/Users/Ali/Google Drive/MacBook Air/Andoird SDK Projet/VisualisationDeFlux2/libs/GraphView-4.0.1.jar')
     compile files('/Users/Ali/Google Drive/MacBook Air/Andoird SDK Projet/VisualisationDeFlux2/libs/mpandroidchartlibrary-2-2-4.jar')
+
+    compile 'com.google.android.gms:play-services:8.4.0'
 }

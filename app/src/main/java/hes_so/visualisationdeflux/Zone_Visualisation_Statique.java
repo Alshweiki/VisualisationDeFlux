@@ -98,7 +98,7 @@ public class Zone_Visualisation_Statique extends android.support.v4.app.Fragment
 
         chart.setDescription("# of times Alice called Bob");
         chart.animateY(5000);
-       
+
         return chart;
     }
 
