@@ -4,6 +4,7 @@ package hes_so.visualisationdeflux;
         import android.app.AlertDialog;
         import android.content.DialogInterface;
         import android.content.Intent;
+        import android.graphics.Color;
         import android.net.Uri;
         import android.os.Bundle;
         import android.support.v7.app.AppCompatActivity;
@@ -22,10 +23,16 @@ package hes_so.visualisationdeflux;
         import com.google.android.gms.maps.model.BitmapDescriptorFactory;
         import com.google.android.gms.maps.model.LatLng;
         import com.google.android.gms.maps.model.MarkerOptions;
+        import com.google.android.gms.maps.model.Polygon;
+        import com.google.android.gms.maps.model.PolygonOptions;
+
+        import java.util.ArrayList;
+        import java.util.List;
 
 public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallback,
         GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener {
 
+    private boolean typeZoneDynamique = true;
     private GoogleMap mMap;
     int intVar = 1;
     @Override
@@ -38,6 +45,8 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
         mapFragment.getMapAsync(this);
         GoogleMap map = mapFragment.getMap();
         map.getUiSettings().setRotateGesturesEnabled(false);
+
+          ourMarker = new ArrayList<OurMarker>();
 
     }
 
@@ -189,23 +198,62 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
                 Toast.LENGTH_LONG).show();
     }
 
+
+    //our class
+    public  class OurMarker{
+        public double latitude;
+        public double longitude;
+        public String title;
+        OurMarker(){}
+
+    }
+    int numberOfClick = 0;
+
+
+    List<OurMarker> ourMarker;
     @Override
     public void onMapClick(LatLng latLng) {
 
-        Toast.makeText(Add_Zone_Map.this,
-                "onMapLongClick:\n" + latLng.latitude + " : " + latLng.longitude,
-                Toast.LENGTH_LONG).show();
-        //Add marker on LongClick position
-        if (intVar  == 1) {
-            mMap.addMarker(new MarkerOptions()
-                    .position(latLng)
-                    .title(latLng.toString())
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        }else{
-            mMap.addMarker(new MarkerOptions()
-                    .position(latLng)
-                    .title(latLng.toString())
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+        numberOfClick++;
+        if (numberOfClick <= 2) {
+            OurMarker m = new OurMarker();
+            m.latitude = latLng.latitude;
+            m.longitude = latLng.longitude;
+            m.title = latLng.toString();
+            ourMarker.add(m);
+
+
+            Toast.makeText(Add_Zone_Map.this,
+                    "onMapLongClick:\n" + latLng.latitude + " : " + latLng.longitude + "numberofclick: " + numberOfClick,
+                    Toast.LENGTH_LONG).show();
+            //Add marker on LongClick position
+            if (typeZoneDynamique) {
+                mMap.addMarker(new MarkerOptions()
+                        .position(latLng)
+                        .title(latLng.toString())
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+            } else {
+                mMap.addMarker(new MarkerOptions()
+                        .position(latLng)
+                        .title(latLng.toString())
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+            }
+        }
+        else
+        {
+            PolygonOptions rectOptions = new PolygonOptions()
+                    .add(new LatLng(ourMarker.get(0).latitude,ourMarker.get(0).longitude),
+                            new LatLng(ourMarker.get(0).latitude,ourMarker.get(1).longitude),
+                            new LatLng(ourMarker.get(1).latitude,ourMarker.get(1).longitude),
+                            new LatLng(ourMarker.get(1).latitude,ourMarker.get(0).longitude))
+                    .strokeColor(Color.RED)
+                    .fillColor(Color.BLUE);
+            Polygon polygon = mMap.addPolygon(rectOptions);
+
+            Toast.makeText(Add_Zone_Map.this,
+                    "you have clicked: " + numberOfClick,
+                    Toast.LENGTH_LONG).show();
         }
     }
+
 }
