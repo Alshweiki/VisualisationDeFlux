@@ -3,6 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="hes_so.visualisationdeflux.Add_Zone_Map">
 
+
+
+    <item
+        android:id="@+id/maptype"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="Map Type...">
+        <menu >
+            <group android:id="@+id/groupmaptype"
+                android:checkableBehavior="single">
+                <item android:id="@+id/maptypeNORMAL"
+                    android:title="NORMAL" />
+                <item android:id="@+id/maptypeSATELLITE"
+                    android:title="SATELLITE" />
+                <item android:id="@+id/maptypeTERRAIN"
+                    android:title="TERRAIN" />
+                <item android:id="@+id/maptypeHYBRID"
+                    android:title="HYBRID" />
+                <item android:id="@+id/maptypeNONE"
+                    android:title="NONE" />
+
+            </group>
+        </menu>
+
+    </item>
+   
+
     <item android:id="@+id/action_logOut" android:title="@string/action_logOut"
         android:orderInCategory="100" app:showAsAction="never" />
     <!--

@@ -32,16 +32,7 @@ public class Admin_Map extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                // Click action
-                Intent intent = new Intent(Admin_Map.this, Add_Zone_Description.class);
-                startActivity(intent);
-            }
-        });
 
     }
 

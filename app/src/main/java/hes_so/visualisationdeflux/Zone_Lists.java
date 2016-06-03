@@ -2,6 +2,7 @@ package hes_so.visualisationdeflux;
 
 //import android.app.Fragment;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -89,12 +90,23 @@ public class Zone_Lists extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                 Intent intent = new Intent(getContext(), Flow_details.class);
-                intent.putExtra("TypeOfZone","statique");
+                Intent intent = new Intent(getContext(), Flow_details.class);
+                intent.putExtra("TypeOfZone", "statique");
                 startActivity(intent);
             }
         });
 
+
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Click action
+                Intent intent = new Intent(getContext(), Add_Zone_Description.class);
+                startActivity(intent);
+            }
+        });
 
 
         return view;
