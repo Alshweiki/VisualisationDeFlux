@@ -232,7 +232,8 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
                         .position(latLng)
                         .title(latLng.toString())
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-            } else {
+            } else
+            if(!typeZoneDynamique) {
                 mMap.addMarker(new MarkerOptions()
                         .position(latLng)
                         .title(latLng.toString())
@@ -241,18 +242,35 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
         }
         else
         {
+            if(typeZoneDynamique){
             PolygonOptions rectOptions = new PolygonOptions()
                     .add(new LatLng(ourMarker.get(0).latitude,ourMarker.get(0).longitude),
                             new LatLng(ourMarker.get(0).latitude,ourMarker.get(1).longitude),
                             new LatLng(ourMarker.get(1).latitude,ourMarker.get(1).longitude),
                             new LatLng(ourMarker.get(1).latitude,ourMarker.get(0).longitude))
-                    .strokeColor(Color.RED)
-                    .fillColor(Color.BLUE);
+                    .strokeColor(Color.YELLOW)
+                    .fillColor(Color.GRAY);
             Polygon polygon = mMap.addPolygon(rectOptions);
 
             Toast.makeText(Add_Zone_Map.this,
                     "you have clicked: " + numberOfClick,
                     Toast.LENGTH_LONG).show();
+            }
+            else
+            if(!typeZoneDynamique){
+                PolygonOptions rectOptions = new PolygonOptions()
+                        .add(new LatLng(ourMarker.get(0).latitude,ourMarker.get(0).longitude),
+                                new LatLng(ourMarker.get(0).latitude,ourMarker.get(1).longitude),
+                                new LatLng(ourMarker.get(1).latitude,ourMarker.get(1).longitude),
+                                new LatLng(ourMarker.get(1).latitude,ourMarker.get(0).longitude))
+                        .strokeColor(Color.GREEN)
+                        .fillColor(Color.GRAY);
+                Polygon polygon = mMap.addPolygon(rectOptions);
+
+                Toast.makeText(Add_Zone_Map.this,
+                        "you have clicked: " + numberOfClick,
+                        Toast.LENGTH_LONG).show();
+            }
         }
     }
 
