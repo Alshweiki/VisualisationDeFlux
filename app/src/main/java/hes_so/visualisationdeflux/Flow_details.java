@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class Flow_details extends AppCompatActivity {
 
@@ -41,7 +42,9 @@ public class Flow_details extends AppCompatActivity {
             case R.id.action_logOut:
                 logout();
                 return true;
-
+            case R.id.action_Delete:
+                Toast.makeText(getApplicationContext(), "il est supprimer", Toast.LENGTH_SHORT).show();
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
