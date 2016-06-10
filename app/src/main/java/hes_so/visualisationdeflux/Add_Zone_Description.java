@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Add_Zone_Description extends AppCompatActivity {
 
@@ -27,6 +32,33 @@ public class Add_Zone_Description extends AppCompatActivity {
                 }
             }
         });
+
+
+
+        // Spinner element
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+
+        // Spinner click listener
+       // spinner.setOnItemSelectedListener(this);
+
+
+    // Spinner Drop down elements
+        List<String> categories = new ArrayList<String>();
+        categories.add("Minute");
+        categories.add("Heures");
+        categories.add("Jours");
+        categories.add("Semaines");
+        categories.add("Mois");
+        categories.add("Année");
+
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        spinner.setAdapter(dataAdapter);
     }
 
     @Override
