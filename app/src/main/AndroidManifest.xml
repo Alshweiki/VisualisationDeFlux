@@ -50,7 +50,10 @@
         <activity
             android:name=".Add_Zone_Map"
             android:label="@string/title_activity_main8"
-            android:parentActivityName=".Add_Zone_Description" >
+            android:parentActivityName=".Add_Zone_Description"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
         </activity>
         <activity
             android:name=".Flow_details"

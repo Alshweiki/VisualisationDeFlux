@@ -7,10 +7,12 @@ package hes_so.visualisationdeflux;
         import android.graphics.Color;
         import android.net.Uri;
         import android.os.Bundle;
+        import android.support.design.widget.FloatingActionButton;
         import android.support.v7.app.AppCompatActivity;
         import android.text.InputType;
         import android.view.Menu;
         import android.view.MenuItem;
+        import android.view.View;
         import android.widget.EditText;
         import android.widget.LinearLayout;
         import android.widget.Toast;
@@ -35,6 +37,7 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
     private boolean typeZoneDynamique = true;
     private GoogleMap mMap;
     int intVar = 1;
+    FloatingActionButton fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,29 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
         map.getUiSettings().setRotateGesturesEnabled(false);
 
           ourMarker = new ArrayList<OurMarker>();
+        fab = (FloatingActionButton) Add_Zone_Map.this.findViewById(R.id.fab);
+        fab.setEnabled(false);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Click action
+                Intent intent = new Intent(Add_Zone_Map.this, Admin_Map.class);
+                startActivity(intent);
+            }
+        });
+
+
+        FloatingActionButton fab2 = (FloatingActionButton) Add_Zone_Map.this.findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ourMarker = new ArrayList<OurMarker>();
+                mMap.clear();
+                numberOfClick= 0;
+                fab.setEnabled(false);
+            }
+        });
 
     }
 
@@ -242,6 +268,7 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
         }
         else
         {
+            fab.setEnabled(true);
             if(typeZoneDynamique){
             PolygonOptions rectOptions = new PolygonOptions()
                     .add(new LatLng(ourMarker.get(0).latitude,ourMarker.get(0).longitude),
@@ -249,7 +276,7 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
                             new LatLng(ourMarker.get(1).latitude,ourMarker.get(1).longitude),
                             new LatLng(ourMarker.get(1).latitude,ourMarker.get(0).longitude))
                     .strokeColor(Color.YELLOW)
-                    .fillColor(Color.GRAY);
+                    .fillColor(0x7F00FF00);
             Polygon polygon = mMap.addPolygon(rectOptions);
 
             Toast.makeText(Add_Zone_Map.this,
@@ -264,7 +291,7 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
                                 new LatLng(ourMarker.get(1).latitude,ourMarker.get(1).longitude),
                                 new LatLng(ourMarker.get(1).latitude,ourMarker.get(0).longitude))
                         .strokeColor(Color.GREEN)
-                        .fillColor(Color.GRAY);
+                        .fillColor(0x7F00FF00);
                 Polygon polygon = mMap.addPolygon(rectOptions);
 
                 Toast.makeText(Add_Zone_Map.this,
