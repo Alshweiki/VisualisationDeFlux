@@ -19,13 +19,20 @@ android {
     }
 }
 
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
-    compile files('libs/GraphView-4.0.1.jar')
-    compile files('/Users/Ali/Google Drive/MacBook Air/Andoird SDK Projet/VisualisationDeFlux2/libs/GraphView-4.0.1.jar')
-    compile files('/Users/Ali/Google Drive/MacBook Air/Andoird SDK Projet/VisualisationDeFlux2/libs/mpandroidchartlibrary-2-2-4.jar')
-
     compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.2.5'
+    compile 'com.jjoe64:graphview:4.0.1'
+    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.google.code.gson:gson:2.3.1'
+
 }

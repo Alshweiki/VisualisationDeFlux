@@ -14,7 +14,7 @@ public class Zone implements Serializable {
 
 
 
-    private String AggTime;
+    private String agg_time;
     private float lat1;
     private float lat2;
     private float lng1;
@@ -82,11 +82,11 @@ public class Zone implements Serializable {
     }
 
     public String getAggTime() {
-        return AggTime;
+        return agg_time;
     }
 
     public void setAggTime(String aggTime) {
-        AggTime = aggTime;
+        agg_time = aggTime;
     }
 
 

@@ -16,15 +16,17 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import Classes.Zone;
 
 
 public class Inside_Zone extends Fragment {
+    Zone zone;
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
+        int zoneId = savedInstanceState.getInt("zoneid");
         // Inflate the layout for this fragment
-View view =
+        View view =
          inflater.inflate(
                 R.layout.fragment_inside__zone, container, false);
 
