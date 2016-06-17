@@ -24,7 +24,7 @@ public class Inside_Zone extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        int zoneId = savedInstanceState.getInt("zoneid");
+        int zoneId = this.getArguments().getInt("zoneid");
         // Inflate the layout for this fragment
         View view =
          inflater.inflate(
