@@ -74,6 +74,10 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
+        Toast.makeText(Add_Zone_Map.this,
+                "Vous devez cliquez sur la carte (3) fois afin de continuer et cree la zone!!" ,
+                Toast.LENGTH_LONG).show();
+
     }
 
     /**
@@ -90,6 +94,7 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
         mMap = googleMap;
         mMap.setOnMapClickListener(this);
         mMap.setOnMapLongClickListener(this);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(46.99225448705687, 6.9419696554541), 7.0f));
     }
 
     @Override
@@ -268,6 +273,7 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
         }
         else
         {
+
             fab.setEnabled(true);
             if(typeZoneDynamique){
             PolygonOptions rectOptions = new PolygonOptions()
@@ -275,13 +281,13 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
                             new LatLng(ourMarker.get(0).latitude,ourMarker.get(1).longitude),
                             new LatLng(ourMarker.get(1).latitude,ourMarker.get(1).longitude),
                             new LatLng(ourMarker.get(1).latitude,ourMarker.get(0).longitude))
-                    .strokeColor(Color.YELLOW)
-                    .fillColor(0x7F00FF00);
+                    .strokeColor(Color.BLUE)
+                    .fillColor(0x7F0000FF); // blue
             Polygon polygon = mMap.addPolygon(rectOptions);
+                Toast.makeText(Add_Zone_Map.this,
+                        "you have clicked: " + numberOfClick,
+                        Toast.LENGTH_LONG).show();
 
-            Toast.makeText(Add_Zone_Map.this,
-                    "you have clicked: " + numberOfClick,
-                    Toast.LENGTH_LONG).show();
             }
             else
             if(!typeZoneDynamique){
@@ -298,6 +304,10 @@ public class Add_Zone_Map extends AppCompatActivity implements OnMapReadyCallbac
                         "you have clicked: " + numberOfClick,
                         Toast.LENGTH_LONG).show();
             }
+
+            Toast.makeText(Add_Zone_Map.this,
+                    "La zone est crée" ,
+                    Toast.LENGTH_LONG).show();
         }
     }
 

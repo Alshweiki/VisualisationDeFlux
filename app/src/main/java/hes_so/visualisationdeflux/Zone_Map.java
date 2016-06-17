@@ -66,9 +66,10 @@ public class Zone_Map extends android.support.v4.app.Fragment implements OnMapRe
     @Override
     public void onMapReady(GoogleMap map) {
 
-        LatLng sydney = new LatLng(-34, 151);
-        map.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
+       // LatLng sydney = new LatLng(-34, 151);
+      //  map.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+       // map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(46.99225448705687, 6.9419696554541), 7.0f));
     }
 }
 

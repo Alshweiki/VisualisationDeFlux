@@ -35,6 +35,12 @@ public class Add_Zone_Description extends AppCompatActivity {
                     Intent intent = new Intent(Add_Zone_Description.this, Add_Zone_Map.class);
                     startActivity(intent);
                 }
+                else
+                {
+                    Toast.makeText(Add_Zone_Description.this,
+                            "Vous devez donnez un nom à votre nouvelle zone",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
 
