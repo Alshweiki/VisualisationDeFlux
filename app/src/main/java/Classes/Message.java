@@ -9,20 +9,20 @@ import java.util.Date;
 public class Message implements Serializable {
 
     private int id;
-    private Date timeStamp;
+    //private Date timestamp;
     private String state;
-    private String deviceId;
+    private String device_id;
     private String subject;
     private String content;
-    private int zoneId;
+    private int zone_id;
 
-    public Date getTimeStamp() {
-        return timeStamp;
+    /*public Date getTimestamp() {
+        return timestamp;
     }
 
     public void setTimeStamp(Date timeStamp) {
-        this.timeStamp = timeStamp;
-    }
+        this.timestamp = timeStamp;
+    }*/
 
     public int getId() {
         return id;
@@ -41,11 +41,11 @@ public class Message implements Serializable {
     }
 
     public String getDeviceId() {
-        return deviceId;
+        return device_id;
     }
 
     public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId;
+        this.device_id = deviceId;
     }
 
     public String getSubject() {
@@ -57,11 +57,11 @@ public class Message implements Serializable {
     }
 
     public int getZoneId() {
-        return zoneId;
+        return zone_id;
     }
 
     public void setZoneId(int zoneId) {
-        this.zoneId = zoneId;
+        this.zone_id = zoneId;
     }
 
     public String getContent() {

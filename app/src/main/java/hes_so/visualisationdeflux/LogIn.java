@@ -1,5 +1,8 @@
 package hes_so.visualisationdeflux;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,23 +10,49 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+
+import Classes.Zone;
 
 public class LogIn extends AppCompatActivity {
-
+    RequestQueue queue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        queue = Volley.newRequestQueue(this);
         Button login_button = (Button) findViewById(R.id.btnLogin);
+        final EditText login = (EditText) findViewById(R.id.login);
+        final EditText password = (EditText) findViewById(R.id.password);
         login_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Perform action on click
-                if(true)
-                {
-                    Intent i = new Intent(LogIn.this, Admin_Map.class);
-                    startActivity(i);
+            // Perform action on
+
+            String url ="http://iuam.tk/api/login/"+login.getText()+"/"+password.getText();
+
+            final StringRequest zonepos = new StringRequest(Request.Method.GET, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Intent i = new Intent(LogIn.this, Admin_Map.class);
+                            startActivity(i);
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(LogIn.this, "Error", Toast.LENGTH_SHORT).show();
                 }
+            });
+            queue.add(zonepos);
             }
         });
     }

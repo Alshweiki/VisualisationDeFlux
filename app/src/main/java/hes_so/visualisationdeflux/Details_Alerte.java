@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 public class Details_Alerte extends AppCompatActivity {
 
@@ -12,6 +14,10 @@ public class Details_Alerte extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_alert);
+        TextView tv1 = (TextView)findViewById(R.id.textView4);
+        TextView tv2 = (TextView)findViewById(R.id.textView5);
+        tv1.setText(getIntent().getStringExtra("subject"));
+        tv2.setText(getIntent().getStringExtra("content"));
     }
 
     @Override
