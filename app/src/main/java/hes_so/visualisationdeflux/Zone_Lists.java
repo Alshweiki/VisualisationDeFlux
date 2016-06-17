@@ -1,6 +1,8 @@
 package hes_so.visualisationdeflux;
 
 //import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -11,14 +13,32 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
+import Classes.Zone;
+import Classes.Zones;
 
 // In this case, the fragment displays simple text based on the page
 public class Zone_Lists extends Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
-
+    ArrayAdapter listAdapter;
+    ListView listViewStatique;
+    ArrayAdapter listAdapter2;
+    String[] zone_Statique;
+    RequestQueue queue;
     private int mPage;
 
 
@@ -40,26 +60,59 @@ public class Zone_Lists extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_zone__lists, container, false);
+        queue = Volley.newRequestQueue(view.getContext());
+
         //TextView textView = (TextView) view;
         //textView.setText("Fragment #" + mPage);
 
         ListView listViewDynamique = (ListView) view.findViewById(R.id.listViewDinamique);
-        String[] zone_Dynamique = new String[] { "Gare"};
+        String[] zone_Dynamique = new String[]{};
 
         ArrayList<String> Zone_Dynamiqeu_List = new ArrayList<String>();
         Zone_Dynamiqeu_List.addAll(Arrays.asList(zone_Dynamique));
 
         // Create ArrayAdapter using the planet list.
-        ArrayAdapter listAdapter = new ArrayAdapter<String>(view.getContext(), R.layout.zone_list, Zone_Dynamiqeu_List);
-        listAdapter.add("Coop");
-        listAdapter.add("Coop");
-        listAdapter.add("Coop");listAdapter.add("Coop");
+        listAdapter = new ArrayAdapter<String>(view.getContext(), R.layout.zone_list, Zone_Dynamiqeu_List);
+       /* listAdapter.add("Coop");
         listAdapter.add("Coop");
         listAdapter.add("Coop");listAdapter.add("Coop");
         listAdapter.add("Coop");
+        listAdapter.add("Coop");listAdapter.add("Coop");
         listAdapter.add("Coop");
+        listAdapter.add("Coop");
+*/
+        Toast.makeText(getContext(),
+                "test",
+                Toast.LENGTH_LONG).show();
 
+        String url ="http://iuam.tk/api/zones";
+        final StringRequest zonepos = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Gson gson = new Gson();
+                        List<Zone> zones = gson.fromJson(response,new TypeToken<List<Zone>>(){}.getType());
 
+                      //  Toast.makeText(getContext(),
+                        //        zones.size(),
+                        //        Toast.LENGTH_LONG).show();
+
+                        for(int i = 0;i<zones.size();i++) {
+                            if(zones.get(i).getType().toString().equals("dynamic"))
+                                listAdapter.add(zones.get(i).getName());
+                            else
+                                listAdapter2.add(zones.get(i).getName());
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(),
+                        error.toString() ,
+                        Toast.LENGTH_LONG).show();
+            }
+        });
 
         listViewDynamique.setAdapter(listAdapter);
 
@@ -68,20 +121,20 @@ public class Zone_Lists extends Fragment {
                                     int position, long id) {
 
                 Intent intent = new Intent(getContext(), Flow_details.class);
-                intent.putExtra("TypeOfZone","dynamique");
+                intent.putExtra("TypeOfZone", "dynamique");
                 startActivity(intent);
             }
         });
 
 
-        ListView listViewStatique = (ListView) view.findViewById(R.id.listViewStatique);
-        String[] zone_Statique = new String[] { "Quartier Vert"};
+        listViewStatique = (ListView) view.findViewById(R.id.listViewStatique);
+       zone_Statique = new String[] { };
 
         ArrayList<String> Zone_Statique_List = new ArrayList<String>();
         Zone_Statique_List.addAll(Arrays.asList(zone_Statique));
 
         // Create ArrayAdapter using the planet list.
-        ArrayAdapter listAdapter2 = new ArrayAdapter<String>(view.getContext(), R.layout.zone_messages, Zone_Statique_List);
+        listAdapter2 = new ArrayAdapter<String>(view.getContext(), R.layout.zone_messages, Zone_Statique_List);
 
 
         listViewStatique.setAdapter(listAdapter2);
@@ -108,7 +161,7 @@ public class Zone_Lists extends Fragment {
             }
         });
 
-
+        queue.add(zonepos);
         return view;
     }
 
